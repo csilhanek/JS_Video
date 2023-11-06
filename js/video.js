@@ -54,11 +54,16 @@ document.querySelector("#mute").addEventListener("click", function() {
 });
 
 document.querySelector("#vintage").addEventListener("click", function() {
-	// Set to oldSchool
+	video.setAttribute("class", "oldSchool");
 });
 
 document.querySelector("#orig").addEventListener("click", function() {
-	// Remove oldSchool
+	video.removeAttribute("class");
+	video.setAttribute("class", "video");
 });
 
-// Fix volume slider
+
+document.querySelector("#slider").addEventListener("click", function() {
+	video.volume = this.value / 100;
+	document.querySelector("#volume").innerHTML = video.volume * 100 + "%";
+})
